@@ -1,9 +1,9 @@
 import React from "react";
 import Hero from "../home/hero";
+import About from "../components/about";
 // import Features from '@/components/home/features';
 // import FAQs from '@/components/home/faqs';
 // import Team from '@/components/home/team';
-// import About from '@/components/home/about';
 
 export function meta() {
   return [
@@ -19,13 +19,11 @@ export function meta() {
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      {
-        <Hero />
-        /*<About />
-      <Features />
+      <Hero />
+      <About />
+      {/* <Features />
       <Team />
-      <FAQs /> */
-      }
+      <FAQs />  */}
     </main>
   );
 }
