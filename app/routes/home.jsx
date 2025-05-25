@@ -2,8 +2,8 @@ import React from "react";
 import Hero from "../home/hero";
 import About from "../components/about";
 import Features from "../components/features";
+import Team from "../components/team";
 // import FAQs from '@/components/home/faqs';
-// import Team from '@/components/home/team';
 
 export function meta() {
   return [
@@ -22,8 +22,8 @@ export default function Home() {
       <Hero />
       <About />
       <Features />
-      {/*<Team />
-      <FAQs />  */}
+      <Team />
+      {/*<FAQs />  */}
     </main>
   );
 }
