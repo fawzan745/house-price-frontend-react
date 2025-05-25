@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../home/hero";
 import About from "../components/about";
-// import Features from '@/components/home/features';
+import Features from "../components/features";
 // import FAQs from '@/components/home/faqs';
 // import Team from '@/components/home/team';
 
@@ -21,8 +21,8 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <Hero />
       <About />
-      {/* <Features />
-      <Team />
+      <Features />
+      {/*<Team />
       <FAQs />  */}
     </main>
   );
