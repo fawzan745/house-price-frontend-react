@@ -8,7 +8,6 @@ const members = [
   {
     name: "Fawzan Insani",
     role: "Frontend Developer",
-    // avatar: "https://alt.tailus.io/images/team/member-two.webp",
     avatar: "../../public/foto lkmm.jpg",
     link: "https://github.com/fawzan745",
   },

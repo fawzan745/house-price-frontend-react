@@ -3,7 +3,7 @@ import Hero from "../home/hero";
 import About from "../components/about";
 import Features from "../components/features";
 import Team from "../components/team";
-// import FAQs from '@/components/home/faqs';
+import FAQs from "../components/faqs";
 
 export function meta() {
   return [
@@ -23,7 +23,7 @@ export default function Home() {
       <About />
       <Features />
       <Team />
-      {/*<FAQs />  */}
+      <FAQs />
     </main>
   );
 }
