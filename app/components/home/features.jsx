@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "../ui/card";
+import { Card, CardContent, CardHeader } from "../../ui/card";
 import { FileSearch2, ChartBarBig, BrainCircuit } from "lucide-react";
 
 export default function Features() {

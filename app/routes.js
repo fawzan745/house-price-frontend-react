@@ -1,5 +1,8 @@
-import { index, layout } from "@react-router/dev/routes";
+import { index, layout, route } from "@react-router/dev/routes";
 
 export default [
-  layout("./layouts/main-layout.jsx", [index("routes/home.jsx")]),
+  layout("./layouts/main-layout.jsx", [
+    index("routes/home.jsx"),
+    route("predict", "routes/predict.jsx"),
+  ]),
 ];
