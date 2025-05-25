@@ -1,3 +1,5 @@
-import { index } from "@react-router/dev/routes";
+import { index, layout } from "@react-router/dev/routes";
 
-export default [index("routes/home.jsx")];
+export default [
+  layout("./layouts/main-layout.jsx", [index("routes/home.jsx")]),
+];
