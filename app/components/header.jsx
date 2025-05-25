@@ -26,7 +26,7 @@ export default function Header() {
                 className="flex items-center space-x-2"
               >
                 <img
-                  className="text-foreground h-10 w-auto"
+                  className="text-foreground h-10 w-auto transition-transform duration-300 ease-in-out hover:scale-110"
                   src="/public/logo/logo2_removed.png"
                   alt="Logo Rego Omah"
                 />

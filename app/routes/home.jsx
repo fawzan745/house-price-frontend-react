@@ -1,5 +1,5 @@
 import React from "react";
-// import Hero from '@/components/home/hero';
+import Hero from "../home/hero";
 // import Features from '@/components/home/features';
 // import FAQs from '@/components/home/faqs';
 // import Team from '@/components/home/team';
@@ -19,11 +19,13 @@ export function meta() {
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      {/* <Hero />
-      <About />
+      {
+        <Hero />
+        /*<About />
       <Features />
       <Team />
-      <FAQs /> */}
+      <FAQs /> */
+      }
     </main>
   );
 }
