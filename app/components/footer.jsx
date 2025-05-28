@@ -7,7 +7,7 @@ const links = [
   },
   {
     title: "EDA",
-    href: "/explorations",
+    href: "/eda",
   },
   {
     title: "Predict",
@@ -17,7 +17,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="py-16 md:py-32">
+    <footer className="py-16 md:py-16">
       <div className="mx-auto max-w-5xl px-6">
         <NavLink
           href="/"
@@ -44,7 +44,7 @@ export default function Footer() {
         </div>
         <span className="text-muted-foreground block text-center text-sm">
           {" "}
-          © {new Date().getFullYear()} Tailark, All rights reserved
+          © {new Date().getFullYear()} Rego Omah, All rights reserved
         </span>
       </div>
     </footer>

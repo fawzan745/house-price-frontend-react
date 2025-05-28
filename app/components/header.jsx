@@ -5,7 +5,7 @@ import { ThemeSwitch } from "@/components/ui/theme";
 
 const menuItems = [
   { name: "Home", href: "/" },
-  { name: "EDA", href: "/explorations" },
+  { name: "EDA", href: "/eda" },
   { name: "Predict", href: "/predict" },
 ];
 
