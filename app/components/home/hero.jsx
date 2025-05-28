@@ -1,4 +1,4 @@
-import { Button } from "../../ui/button";
+import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router";
 
 export default function Hero() {
@@ -16,7 +16,7 @@ export default function Hero() {
 
             <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
               <Button asChild size="lg" className="px-5 text-base">
-                <NavLink href="/predict">
+                <NavLink to="/predict">
                   <span className="text-nowrap">Start Predict</span>
                 </NavLink>
               </Button>
@@ -24,7 +24,7 @@ export default function Hero() {
           </div>
           <img
             className="-z-10 order-first ml-auto h-72 w-full object-cover sm:h-96 md:h-8/10 lg:absolute lg:inset-0 lg:-right-20 lg:-top-96 lg:order-last lg:h-max lg:w-2/3 lg:object-contain dark:mix-blend-lighten mt-12 lg:mt-56 dark:brightness-75"
-            src="/public/house-image.png"
+            src="/house-image.png"
             alt="House Image"
             height="4000"
             width="3000"

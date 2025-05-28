@@ -1,15 +1,23 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "../../ui/button";
-import { Input } from "../../ui/input";
+import { Check, ChevronsUpDown, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "../../ui/select";
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
   Form,
   FormControl,
@@ -17,9 +25,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../../ui/form";
+} from "@/components/ui/form";
+import { useState } from "react";
+import { useLoaderData } from "react-router";
 
 const formSchema = z.object({
+  location_id: z.number({
+    required_error: "Please select a location.",
+  }),
   bedroom: z.coerce.number().min(1, {
     message: "Number of bedroom must be at least 1.",
   }),
@@ -35,14 +48,17 @@ const formSchema = z.object({
 });
 
 export default function PredictForm({ onSubmit }) {
-  // 1. Define your form.
+  const [open, setOpen] = useState(false);
+  const locations = useLoaderData();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      bedroom: 2,
-      bathroom: 1,
-      land_area: 50,
-      building_area: 56,
+      location_id: undefined,
+      bedroom: undefined,
+      bathroom: undefined,
+      land_area: undefined,
+      building_area: undefined,
     },
   });
 
@@ -58,27 +74,58 @@ export default function PredictForm({ onSubmit }) {
           render={({ field }) => (
             <FormItem className="col-span-2">
               <FormLabel>Location</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a verified email to display" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem className="cursor-pointer" value="m@example.com">
-                    Kebraon, Surabaya
-                  </SelectItem>
-                  <SelectItem className="cursor-pointer" value="m@example.com">
-                    m@example.com
-                  </SelectItem>
-                  <SelectItem className="cursor-pointer" value="m@google.com">
-                    m@google.com
-                  </SelectItem>
-                  <SelectItem className="cursor-pointer" value="m@support.com">
-                    m@support.com
-                  </SelectItem>
-                </SelectContent>
-              </Select>
+              <Popover open={open} onOpenChange={setOpen}>
+                <PopoverTrigger asChild className="cursor-pointer">
+                  <Button
+                    variant="outline"
+                    role="combobox"
+                    aria-expanded={open}
+                    className={cn(
+                      "justify-between",
+                      !field.value && "text-muted-foreground"
+                    )}
+                  >
+                    {field.value
+                      ? locations.find((loc) => loc.id === field.value)
+                          ?.district
+                      : "Select location"}
+                    <ChevronsUpDown className="opacity-50" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="p-0 w-[var(--radix-popover-trigger-width)]">
+                  <Command>
+                    <CommandInput
+                      placeholder="Search locations..."
+                      className="h-9"
+                    />
+                    <CommandList>
+                      <CommandEmpty>No location found.</CommandEmpty>
+                      <CommandGroup>
+                        {locations.map((loc) => (
+                          <CommandItem
+                            key={loc.id}
+                            value={loc.district}
+                            onSelect={() => {
+                              form.setValue("location_id", loc.id);
+                              setOpen(false);
+                            }}
+                          >
+                            {loc.district}
+                            <Check
+                              className={cn(
+                                "ml-auto",
+                                field.value === loc.id
+                                  ? "opacity-100"
+                                  : "opacity-0"
+                              )}
+                            />
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+                </PopoverContent>
+              </Popover>
               <FormMessage />
             </FormItem>
           )}
@@ -147,8 +194,19 @@ export default function PredictForm({ onSubmit }) {
             </FormItem>
           )}
         />
-        <Button className="col-span-2 cursor-pointer" type="submit">
-          Predict
+        <Button
+          className="col-span-2 cursor-pointer"
+          type="submit"
+          disabled={form.formState.isSubmitting}
+        >
+          {form.formState.isSubmitting ? (
+            <>
+              <Loader2 className="animate-spin" />
+              <span>Please wait...</span>
+            </>
+          ) : (
+            "Predict"
+          )}
         </Button>
       </form>
     </Form>

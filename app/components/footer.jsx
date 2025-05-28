@@ -26,7 +26,7 @@ export default function Footer() {
         >
           <img
             className="text-foreground h-12 w-auto"
-            src="/public/logo/logo2_removed.png"
+            src="logo/logo2_removed.png"
             alt="Logo Rego Omah"
           />
         </NavLink>

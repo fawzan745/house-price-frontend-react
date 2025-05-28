@@ -1,7 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { NavLink } from "react-router";
-import { ThemeSwitch } from "../ui/theme";
+import { ThemeSwitch } from "@/components/ui/theme";
 
 const menuItems = [
   { name: "Home", href: "/" },
@@ -27,7 +27,7 @@ export default function Header() {
               >
                 <img
                   className="text-foreground h-10 w-auto transition-transform duration-300 ease-in-out hover:scale-110"
-                  src="/public/logo/logo2_removed.png"
+                  src="logo/logo2_removed.png"
                   alt="Logo Rego Omah"
                 />
               </NavLink>

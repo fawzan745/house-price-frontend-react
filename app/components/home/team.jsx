@@ -8,7 +8,7 @@ const members = [
   {
     name: "Fawzan Insani",
     role: "Frontend Developer",
-    avatar: "../../public/foto lkmm.jpg",
+    avatar: "foto lkmm.jpg",
     link: "https://github.com/fawzan745",
   },
   {

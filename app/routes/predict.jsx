@@ -1,23 +1,48 @@
-import PredictForm from "../components/predict/form";
-import ResultCard from "../components/predict/card";
+import ResultCard from "@/components/predict/card";
+import PredictForm from "@/components/predict/form";
+import { Toaster, toast } from "sonner";
+import { useState } from "react";
 
-export function meta() {
-  return [
-    { title: "Rego Omah - Predict" },
-    {
-      name: "description",
-      content:
-        "Aplikasi prediksi harga rumah berdasarkan lokasi, luas bangunan, dan faktor lainnya. Bantu Anda mengetahui estimasi nilai properti secara akurat. Cocok untuk pembeli, penjual, atau agen properti.",
-    },
-  ];
+export async function loader() {
+  const res = await fetch(
+    `${import.meta.env.VITE_API_URL}/locations?limit=200`
+  );
+  return res.json();
 }
 
-export default function Home() {
-  function onSubmit(values) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
-  }
+export default function Predict() {
+  const [house, setHouse] = useState({
+    price: 0,
+    bedroom: 0,
+    bathroom: 0,
+    land_area: 0,
+    building_area: 0,
+    location: {
+      id: 0,
+      district: "",
+    },
+  });
+
+  const onSubmit = async (values) => {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/houses/predict`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+
+    if (!res.ok) {
+      toast.error("Uh oh! Something went wrong.", {
+        description: "There was a problem with your request.",
+      });
+    }
+
+    const data = await res.json();
+    setHouse(data);
+  };
+
   return (
     <main className="overflow-x-hidden">
       <section className="py-16 md:py-32">
@@ -30,11 +55,12 @@ export default function Home() {
               <PredictForm onSubmit={onSubmit} />
             </div>
             <div className="relative mt-6 sm:mt-0">
-              <ResultCard />
+              <ResultCard house={house} />
             </div>
           </div>
         </div>
       </section>
+      <Toaster richColors closeButton />
     </main>
   );
 }

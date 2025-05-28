@@ -1,9 +1,9 @@
 import React from "react";
-import Hero from "../components/home/hero";
-import About from "../components/home/about";
-import Features from "../components/home/features";
-import Team from "../components/home/team";
-import FAQs from "../components/home/faqs";
+import Hero from "@/components/home/hero";
+import About from "@/components/home/about";
+import Features from "@/components/home/features";
+import Team from "@/components/home/team";
+import FAQs from "@/components/home/faqs";
 
 export function meta() {
   return [

@@ -9,7 +9,7 @@ export default function About() {
             </h2>
             <img
               className="text-foreground h-16 w-auto"
-              src="/public/logo/logo2_removed.png"
+              src="/logo/logo2_removed.png"
               alt="Logo Rego Omah"
             />
           </div>
