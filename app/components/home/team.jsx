@@ -2,19 +2,19 @@ const members = [
   {
     name: "Munaffidzur Romzy Albaaly",
     role: "Machine Learning Engineer",
-    avatar: "https://alt.tailus.io/images/team/member-one.webp",
+    avatar: "pidun-removebg-preview.png",
     link: "https://github.com/romzyalba",
   },
   {
     name: "Fawzan Insani",
     role: "Frontend Developer",
-    avatar: "foto lkmm.jpg",
+    avatar: "fawzan-removebg-preview.png",
     link: "https://github.com/fawzan745",
   },
   {
     name: "Akmal Luthfi",
     role: "Backend Developer",
-    avatar: "https://alt.tailus.io/images/team/member-three.webp",
+    avatar: "luthfi-removebg-preview.png",
     link: "http://github.com/akmalluthfi",
   },
 ];
