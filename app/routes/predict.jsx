@@ -10,6 +10,19 @@ export async function clientLoader() {
   return res.json();
 }
 
+export function HydrateFallback() {
+  return (
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="mx-auto max-w-screen-sm text-center flex flex-row justify-center">
+        <p class="mb-4 text-3xl">
+          <Loader2 className="animate-spin inline mr-3" />
+          Loading ...
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Predict() {
   const [house, setHouse] = useState({
     price: 0,
@@ -45,7 +58,7 @@ export default function Predict() {
 
   return (
     <main className="overflow-x-hidden">
-      <section className="py-16 md:py-32">
+      <section className="py-20 md:py-32">
         <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
           <h2 className="relative z-10 max-w-xl text-4xl font-medium lg:text-5xl">
             Predict the house price

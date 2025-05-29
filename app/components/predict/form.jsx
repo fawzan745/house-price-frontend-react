@@ -54,11 +54,11 @@ export default function PredictForm({ onSubmit }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      location_id: undefined,
-      bedroom: undefined,
-      bathroom: undefined,
-      land_area: undefined,
-      building_area: undefined,
+      location_id: "",
+      bedroom: "",
+      bathroom: "",
+      land_area: "",
+      building_area: "",
     },
   });
 
@@ -106,7 +106,9 @@ export default function PredictForm({ onSubmit }) {
                             key={loc.id}
                             value={loc.district}
                             onSelect={() => {
-                              form.setValue("location_id", loc.id);
+                              form.setValue("location_id", loc.id, {
+                                shouldValidate: true,
+                              });
                               setOpen(false);
                             }}
                           >
@@ -169,7 +171,7 @@ export default function PredictForm({ onSubmit }) {
           name="land_area"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Land Area</FormLabel>
+              <FormLabel>Land Area (m²)</FormLabel>
               <FormControl>
                 <Input type="number" placeholder="Land area in m²" {...field} />
               </FormControl>
@@ -182,7 +184,7 @@ export default function PredictForm({ onSubmit }) {
           name="building_area"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Building Area</FormLabel>
+              <FormLabel>Building Area (m²)</FormLabel>
               <FormControl>
                 <Input
                   type="number"
