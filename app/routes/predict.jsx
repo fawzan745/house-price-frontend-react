@@ -3,7 +3,7 @@ import PredictForm from "@/components/predict/form";
 import { Toaster, toast } from "sonner";
 import { useState } from "react";
 
-export async function loader() {
+export async function clientLoader() {
   const res = await fetch(
     `${import.meta.env.VITE_API_URL}/locations?limit=200`
   );
