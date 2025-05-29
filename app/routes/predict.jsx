@@ -1,6 +1,7 @@
 import ResultCard from "@/components/predict/card";
 import PredictForm from "@/components/predict/form";
 import { Toaster, toast } from "sonner";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
 
 export async function clientLoader() {
@@ -12,9 +13,9 @@ export async function clientLoader() {
 
 export function HydrateFallback() {
   return (
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <div class="mx-auto max-w-screen-sm text-center flex flex-row justify-center">
-        <p class="mb-4 text-3xl">
+    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div className="mx-auto max-w-screen-sm text-center flex flex-row justify-center">
+        <p className="mb-4 text-3xl">
           <Loader2 className="animate-spin inline mr-3" />
           Loading ...
         </p>
