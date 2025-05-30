@@ -4,13 +4,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-
-const formatted = new Intl.NumberFormat("id-ID", {
-  style: "currency",
-  currency: "IDR",
-  maximumFractionDigits: 0,
-});
+} from '@/components/ui/card';
+import { local_price } from '@/lib/utils';
 
 export default function ResultCard({ house }) {
   return (
@@ -32,7 +27,7 @@ export default function ResultCard({ house }) {
           Prediction price
         </small>
         <p className="text-2xl font-bold">
-          {formatted.format(house.price * 1_000_000)}
+          {local_price.format(house.price * 1_000_000)}
         </p>
       </CardContent>
     </Card>

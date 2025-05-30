@@ -1,19 +1,19 @@
-import ResultCard from "@/components/predict/card";
-import PredictForm from "@/components/predict/form";
-import { Toaster, toast } from "sonner";
-import { Loader2 } from "lucide-react";
-import { useState } from "react";
+import ResultCard from '@/components/predict/card';
+import PredictForm from '@/components/predict/form';
+import { Toaster, toast } from 'sonner';
+import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
 
 export async function clientLoader() {
   const res = await fetch(
-    `${import.meta.env.VITE_API_URL}/locations?limit=200`
+    `${import.meta.env.VITE_API_URL}/locations?limit=200`,
   );
   return res.json();
 }
 
 export function HydrateFallback() {
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
       <div className="mx-auto max-w-screen-sm text-center flex flex-row justify-center">
         <p className="mb-4 text-3xl">
           <Loader2 className="animate-spin inline mr-3" />
@@ -33,23 +33,23 @@ export default function Predict() {
     building_area: 0,
     location: {
       id: 0,
-      district: "",
+      district: '',
     },
   });
 
   const onSubmit = async (values) => {
     const res = await fetch(`${import.meta.env.VITE_API_URL}/houses/predict`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(values),
     });
 
     if (!res.ok) {
-      toast.error("Uh oh! Something went wrong.", {
-        description: "There was a problem with your request.",
+      toast.error('Uh oh! Something went wrong.', {
+        description: 'There was a problem with your request.',
       });
     }
 
