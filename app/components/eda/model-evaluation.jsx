@@ -5,8 +5,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import { useLoaderData } from 'react-router';
+} from "@/components/ui/table";
+import { useLoaderData } from "react-router";
 
 export default function ModelEvaluation() {
   const { result_table: data } = useLoaderData();
@@ -14,7 +14,7 @@ export default function ModelEvaluation() {
   return (
     <div>
       <h2 className="font-bold text-xl mb-2">Model Evaluations</h2>
-      <Table>
+      <Table className="max-h-fit">
         <TableHeader>
           <TableRow>
             <TableHead></TableHead>

@@ -2,19 +2,19 @@ const members = [
   {
     name: "Munaffidzur Romzy Albaaly",
     role: "Machine Learning Engineer",
-    avatar: "pidun-removebg-preview.png",
+    avatar: "team/pidun-removebg-preview-11.jpg",
     link: "https://github.com/romzyalba",
   },
   {
     name: "Fawzan Insani",
     role: "Frontend Developer",
-    avatar: "fawzan-removebg-preview.png",
+    avatar: "team/fawzan-removebg-preview-11.jpg",
     link: "https://github.com/fawzan745",
   },
   {
     name: "Akmal Luthfi",
     role: "Backend Developer",
-    avatar: "luthfi-removebg-preview.png",
+    avatar: "team/luthfi-removebg-preview-11.jpg",
     link: "http://github.com/akmalluthfi",
   },
 ];
@@ -49,6 +49,7 @@ export default function Team() {
                   width="826"
                   height="1239"
                 />
+
                 <div className="px-2 pt-2 sm:pb-0 sm:pt-4">
                   <div className="flex justify-between">
                     <h3 className="text-title text-base font-medium transition-all duration-500 group-hover:tracking-wider">
